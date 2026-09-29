@@ -7,3 +7,5 @@ export DOCKER_BUILDKIT=1
 
 docker build -t mw-ext-popups .
 docker run --rm -it -v $(pwd)/dist:/dist mw-ext-popups
+
+sudo tar --zstd -xf dist/dist.tar.zst -C /data0/documents/extensions/Popups
