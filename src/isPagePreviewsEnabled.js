@@ -19,17 +19,5 @@
  * @return {boolean|null} Null when there is no way the popup type can be enabled at run-time.
  */
 export default function isPagePreviewsEnabled( user, userSettings, config ) {
-	// T160081: Unavailable when in conflict with the Navigation Popups gadgets.
-	if ( config.get( 'wgPopupsConflictsWithNavPopupGadget' ) ) {
-		return null;
-	}
-
-	// For anonymous users, the code loads always, but the feature can be toggled at run-time via
-	// local storage.
-	if ( user.isAnon() ) {
-		return userSettings.isPagePreviewsEnabled();
-	}
-
-	// Registered users never can enable popup types at run-time.
-	return mw.user.options.get( 'popups' ) === '1' ? true : null;
+	return null;
 }
